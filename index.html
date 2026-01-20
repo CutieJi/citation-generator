@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citation Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>Citation Generator</h1>
+            </div>
+            <nav>
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="citation-form">
+                <div class="form-container">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="book">Book</button>
+                        <button class="tab" data-tab="website">Website</button>
+                    </div>
+
+                    <div class="tab-content active" id="book-tab">
+                        <form id="book-form">
+                            <div class="form-group">
+                                <label for="author">Author(s)</label>
+                                <input type="text" id="author" placeholder="Lastname, Firstname" required>
+                                <small>Separate multiple authors with commas</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Book Title</label>
+                                <input type="text" id="title" placeholder="Title of the book" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="publisher">Publisher</label>
+                                <input type="text" id="publisher" placeholder="Publisher name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="year">Publication Year</label>
+                                <input type="number" id="year" placeholder="YYYY" required>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-content" id="website-tab">
+                        <form id="website-form">
+                            <div class="form-group">
+                                <label for="web-author">Author(s)</label>
+                                <input type="text" id="web-author" placeholder="Lastname, Firstname or Organization">
+                            </div>
+                            <div class="form-group">
+                                <label for="web-title">Page Title</label>
+                                <input type="text" id="web-title" placeholder="Title of the webpage" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="site-name">Website Name</label>
+                                <input type="text" id="site-name" placeholder="Name of the website" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="url">URL</label>
+                                <input type="url" id="url" placeholder="https://example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="access-date">Access Date</label>
+                                <input type="date" id="access-date" required>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="style-options">
+                        <label>Citation Style:</label>
+                        <div class="style-buttons">
+                            <button class="style-btn active" data-style="apa">APA</button>
+                            <button class="style-btn" data-style="mla">MLA</button>
+                            <button class="style-btn" data-style="chicago">Chicago</button>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button id="generate-btn" class="primary-btn">
+                            <i class="fas fa-magic"></i> Generate Citation
+                        </button>
+                        <button id="clear-btn" class="secondary-btn">
+                            <i class="fas fa-broom"></i> Clear Form
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <div class="results-header">
+                    <h3>Your Citation</h3>
+                    <button id="copy-btn" class="icon-btn" title="Copy to clipboard">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+                <div class="citation-result">
+                    <p id="citation-output">Fill out the form and click "Generate Citation" to see your formatted citation here.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
